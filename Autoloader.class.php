@@ -1,0 +1,17 @@
+<?php
+
+class Autoloader {
+  
+  static function register() {
+    spl_autoload_register( array(__CLASS__, 'autoload') );
+  }
+
+  static function autoload( $class_name ) { //Return Namespace/class
+    $class_name = str_replace('\\', '/', $class_name); 
+    
+    require  $class_name . '.class.php';
+  }
+  
+}
+
+?>

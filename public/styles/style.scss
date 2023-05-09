@@ -1,0 +1,80 @@
+@import 'normalize';
+@import 'base';
+
+/*--------------------------------------------------------------
+Header
+--------------------------------------------------------------*/
+
+header {
+    background-color: var(--global-color);
+    box-shadow: var(--shadow);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    .site-header {
+        padding: 10px 0;
+        &__logo {
+            img {
+                height: 35px;
+            }
+        }
+        ul {
+            li {
+                a {
+                    padding: 10px 20px;
+                    color: var(--white);
+                }
+            }
+        }
+        &__account {
+            a.profil {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-transform: uppercase;
+                background-color: var(--light-grey);
+                color: var(--white);
+                font-size: 25px;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+            }
+        }
+    }
+}
+
+/*--------------------------------------------------------------
+Page
+--------------------------------------------------------------*/
+
+/*-----Accueil-----*/
+
+
+/*-----Contact-----*/
+
+/*-----Login-----*/
+
+#login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .login-form {
+        width: 400px;
+    }
+}
+
+/*--------------------------------------------------------------
+Footer
+--------------------------------------------------------------*/
+
+footer {
+    background-color: var(--light-grey);
+    .site-footer {
+        padding: 10px 0;
+        p {
+            text-align: center;
+        }
+    }
+}
