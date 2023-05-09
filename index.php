@@ -12,9 +12,12 @@ ini_set('display_errors', 1);ini_set('display_startup_errors', 1);error_reportin
 //Set the timezone
 date_default_timezone_set('Europe/Paris');
 
-//Set a shortcurt for the website url 
-// define( "SITE_URL", 'https://' . $_SERVER['SERVER_NAME'] );
-define( "SITE_URL", '/floaty.alexishadjian.com' );
+//Set a shortcurt for the website url
+if ( $_SERVER['SERVER_NAME'] === 'localhost' ) {
+    define( "SITE_URL", '/floaty.alexishadjian.com' );
+} else {
+    define( "SITE_URL", 'https://' . $_SERVER['SERVER_NAME'] );
+}
 
 //Init autoloader
 require_once('Autoloader.class.php');
