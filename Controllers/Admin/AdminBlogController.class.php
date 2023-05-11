@@ -65,27 +65,13 @@ class AdminBlogController extends AdminController {
 
             if ( !Security::slugExists( $_POST['add-slug']) ) {
             
-                $inputName = 'add-image';
-                
-                $time = time();
-                $img_name = $_FILES[$inputName]['name'];
-                $img_rename = $time.$img_name;
-                $img_size = $_FILES[$inputName]['size'];
-                $img_tmp_name = $_FILES[$inputName]['tmp_name'];
-                $upload_folder = "uploads/";
-                $target_file = $upload_folder . basename($img_rename);
-                $sizeLimit = 5; // File limit in Mo
-    
-                // if ($img_size > ($sizeLimit * 100000)) {
-                //     echo 'File must be less than ' . $sizeLimit . 'MB.';
-                // } else {
-                    move_uploaded_file($img_tmp_name, $target_file);
-                // }
+                Tools::imgTreatment('add-image');
+
                 $datas = [
                     'title'     => $_POST['add-title'],
                     'slug'      => $_POST['add-slug'],
                     'content'   => $_POST['add-content'],
-                    'image'   => $img_rename,
+                    'image'     => $_FILES['add-image']['name'],
                     'date'      => date('Y-m-d H:i:s'),
                 ];
                 
@@ -123,7 +109,7 @@ class AdminBlogController extends AdminController {
                     'title'     => $_POST['edit-title'],
                     'slug'      => $_POST['edit-slug'],
                     'content'   => $_POST['edit-content'],
-                    'image'   => $_FILES['edit-image']['name'],
+                    'image'     => $_FILES['edit-image']['name'],
                     'date'      => date('Y-m-d H:i:s'),
                 ];
                 
@@ -141,5 +127,19 @@ class AdminBlogController extends AdminController {
             Tools::setMessage("Veuillez remplir tous les champs", '#FF0000', 'Cross');
             header('Location:' . SITE_URL . '/admin/blog');
         }
+    }
+
+    public function deleteEditImage() {
+
+        $datas['post']['image'] = '';
+
+        $datas = [
+            'slug'      => $_GET['slug'],
+            'image'   => '',
+        ];
+
+        $this->adminBlogModel->deleteImageTreatment( $datas );
+
+        header('Location:' . SITE_URL . '/admin/edit_post&slug=' . $_GET['slug']);
     }
 }

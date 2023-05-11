@@ -6,13 +6,13 @@ ob_start();
 //Start session
 session_start();
 
-//Enable display erros
+//Enable display errors
 ini_set('display_errors', 1);ini_set('display_startup_errors', 1);error_reporting(E_ALL);
 
-//Set the timezone
+//Set timezone
 date_default_timezone_set('Europe/Paris');
 
-//Set a shortcurt for the website url
+//Create shortcurt for website url
 if ( $_SERVER['SERVER_NAME'] === 'localhost' ) {
     define( "SITE_URL", '/floaty.alexishadjian.com' );
 } else {

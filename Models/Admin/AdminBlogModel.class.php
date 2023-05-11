@@ -56,4 +56,13 @@ class AdminBlogModel extends AdminModel {
 
     }
 
+
+    public function deleteImageTreatment( $datas ) {
+
+        $sql = "UPDATE posts SET image = :image WHERE slug = :slug";
+        $post = $this->getPDO()->prepare($sql);
+        $post->execute($datas);
+
+    }
+
 }

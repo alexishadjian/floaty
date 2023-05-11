@@ -228,42 +228,49 @@ th {
 Font face
 --------------------------------------------------------------*/
 @font-face {
-  font-family: "Poppins";
+  font-family: "Nunito";
   font-style: normal;
   font-weight: 400;
-  src: url("../assets/fonts/Poppins-Regular.woff2") format("woff2"), url("../assets/fonts/Poppins-Regular.ttf") format("opentype");
+  src: url("../assets/fonts/Nunito-Regular.ttf") format("opentype");
 }
 @font-face {
-  font-family: "Poppins";
+  font-family: "Nunito";
   font-style: normal;
   font-weight: 600;
-  src: url("../assets/fonts/Poppins-SemiBold.woff2") format("woff2"), url("../assets/fonts/Poppins-SemiBold.ttf") format("opentype");
+  src: url("../assets/fonts/Nunito-SemiBold.ttf") format("opentype");
 }
 @font-face {
-  font-family: "Poppins";
+  font-family: "Nunito";
   font-style: normal;
   font-weight: 700;
-  src: url("../assets/fonts/Poppins-Bold.woff2") format("woff2"), url("../assets/fonts/Poppins-Bold.ttf") format("opentype");
+  src: url("../assets/fonts/Nunito-Bold.ttf") format("opentype");
 }
 /*--------------------------------------------------------------
 Variables
 --------------------------------------------------------------*/
+.tmp {
+  color: #86a3b4;
+  color: #0d2736;
+  color: #183c51;
+}
+
 html {
   --black: #0F0F0F;
   --white: #FFFFFF;
-  --global-color: #86a3b4;
+  --global-color: #0d2736;
   --light-grey: #dddddd;
   --light-grey-blue: #eef4fd;
-  --font: "Poppins", sans-serif;
+  --font: "Nunito", sans-serif;
   --regular: 400;
   --semi-bold: 600;
   --bold: 700;
   --shadow: 0px 0px 30px 0px rgb(0 0 0 / 20%);
   --shadow-light: 0px 0px 30px 0px rgb(0 0 0 / 10%);
-  --mask: #00000060;
+  --mask: rgb(0 65 103 / 35%);
   --radius_big: 20px;
   --radius: 10px;
   --radius_small: 5px;
+  --header-height: 94px;
   --nav-width: 250px;
 }
 
@@ -282,13 +289,11 @@ body {
   display: flex;
   flex-flow: column;
   min-height: 100vh;
+  background-color: var(--global-color);
 }
 
 main {
   flex-grow: 1;
-}
-main:not(.back) {
-  margin-top: 100px;
 }
 
 a {
@@ -359,7 +364,7 @@ Modèles
 .btn {
   text-decoration: none;
   border-radius: var(--radius_small);
-  font-weight: var(--semibold);
+  font-weight: var(--bold);
   padding: 10px 27px;
   font-size: 15px;
   transition: 0.2s;
@@ -408,31 +413,76 @@ form input[type=submit] {
 /*-----Header-page-----*/
 .header-page {
   width: 100%;
-  height: 220px;
+  height: 350px;
   position: relative;
-  background-image: url("../assets/img/voilier1.jpg");
+  background-image: url("../assets/img/boat.jpg");
   background-repeat: no-repeat;
   background-position: center;
+  background-attachment: fixed;
   background-size: cover;
   overflow: hidden;
-  border-radius: var(--radius_big);
-  margin-top: 20px;
-  margin-bottom: 50px;
+  padding-bottom: 50px;
+  z-index: 1;
+}
+.header-page::after {
+  content: "";
+  position: absolute;
+  background: linear-gradient(to top, var(--global-color), rgba(0, 0, 0, 0.3));
+  inset: 0;
+  z-index: -1;
 }
 .header-page__content {
   display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
-  background-color: rgba(134, 163, 180, 0.45);
   color: var(--white);
-  padding: 50px;
+  padding: calc(80px + var(--header-height)) 80px 80px 80px;
   inset: 0;
 }
 .header-page__content__title {
+  font-size: 50px;
   text-align: center;
 }
 
+/*-----Scroll btn-----*/
+#scroll-btn {
+  position: absolute;
+  bottom: 8%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  padding: 35px 20px;
+}
+#scroll-btn span {
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-bottom: 2px solid var(--white);
+  border-right: 2px solid var(--white);
+  transform: rotate(45deg);
+  margin: -10px;
+  animation: scrollDown 2s infinite;
+}
+#scroll-btn span:nth-child(2) {
+  animation-delay: -0.2s;
+}
+#scroll-btn span:nth-child(3) {
+  animation-delay: -0.4s;
+}
+
+@keyframes scrollDown {
+  0% {
+    opacity: 0;
+    transform: rotate(45deg) translate(-20px, -20px);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(45deg) translate(20px, 20px);
+  }
+}
 /*-----Info-msg-----*/
 #info-msg {
   display: flex;
@@ -471,31 +521,54 @@ form input[type=submit] {
 Header
 --------------------------------------------------------------*/
 header {
-  background-color: var(--global-color);
-  box-shadow: var(--shadow);
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1;
+  z-index: 50;
+  transition: 0.3s;
+}
+header.scroll {
+  background-color: var(--global-color);
+  box-shadow: var(--shadow);
+  --header-height: 74px;
+}
+header.scroll .site-header {
+  padding: 10px 0;
 }
 header .site-header {
-  padding: 10px 0;
+  padding: 20px 0;
+  transition: 0.2s;
 }
 header .site-header__logo img {
   height: 35px;
 }
-header .site-header ul li a {
-  padding: 10px 20px;
+header .site-header nav:hover a {
+  opacity: 0.4;
+}
+header .site-header nav ul {
+  margin: 0;
+}
+header .site-header nav ul li {
+  display: flex;
+}
+header .site-header nav ul li a {
+  padding: 16px 20px;
   color: var(--white);
+  font-weight: var(--bold);
+  transition: 0.3s;
+}
+header .site-header nav ul li a:hover {
+  opacity: 1;
 }
 header .site-header__account a.profil {
   display: flex;
   align-items: center;
   justify-content: center;
   text-transform: uppercase;
-  background-color: var(--light-grey);
-  color: var(--white);
+  background-color: var(--white);
+  color: var(--global-color);
+  font-weight: var(--bold);
   font-size: 25px;
   width: 40px;
   height: 40px;
@@ -505,27 +578,133 @@ header .site-header__account a.profil {
 /*--------------------------------------------------------------
 Page
 --------------------------------------------------------------*/
-/*-----Accueil-----*/
+/*-----Homepage-----*/
+#homepage #hero {
+  min-height: 100vh;
+  background-image: url("../assets/img/hero.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  padding-top: 100px;
+  color: var(--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+#homepage #hero::after {
+  content: "";
+  position: absolute;
+  background: linear-gradient(to top, var(--global-color), rgba(0, 0, 0, 0.3));
+  inset: 0;
+  z-index: -1;
+}
+#homepage #hero .content__title {
+  font-size: 100px;
+  text-align: center;
+  margin-top: 0;
+}
+#homepage #hero .content__description {
+  font-size: 25px;
+  text-align: center;
+  line-height: 1.8;
+  padding: 0 100px;
+}
+#homepage #tmp {
+  min-height: 100vh;
+}
+#homepage #tmp2 {
+  min-height: 100vh;
+  background-color: var(--white);
+}
+
 /*-----Contact-----*/
+/*------Blog-------*/
+#blog .post-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  padding: 100px 0;
+}
+#blog .post-list .post {
+  box-shadow: var(--shadow-light);
+  border-radius: var(--radius);
+  background-color: var(--white);
+  overflow: hidden;
+  position: relative;
+}
+#blog .post-list .post__link {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+#blog .post-list .post__thumbnail {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 200px;
+  position: relative;
+}
+#blog .post-list .post__thumbnail::after {
+  content: "";
+  position: absolute;
+  background-color: var(--mask);
+  inset: 0;
+  z-index: 1;
+}
+#blog .post-list .post__content {
+  padding: 30px;
+}
+#blog .post-list .post__content__title {
+  font-size: 24px;
+}
+
 /*-----Login-----*/
 #login {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 100px;
 }
 #login .login-form {
-  width: 400px;
+  width: 450px;
+  padding: 50px;
+  background-color: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+#login .login-form h2 {
+  text-align: center;
+  margin-top: 0;
+}
+
+/*------404------*/
+#error-404 .content {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+#error-404 .content__title {
+  font-size: 200px;
+  color: var(--global-color);
+  opacity: 0.5;
+  margin: 50px 0;
 }
 
 /*--------------------------------------------------------------
 Footer
 --------------------------------------------------------------*/
 footer {
-  background-color: var(--light-grey);
+  background-color: var(--global-color);
 }
 footer .site-footer {
   padding: 10px 0;
 }
 footer .site-footer p {
   text-align: center;
+  color: var(--white);
 }

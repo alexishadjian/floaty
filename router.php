@@ -66,6 +66,9 @@ if ( empty( $_GET ) ) {
                                     case "edit_post_treatment": 
                                         $AdminBlogController->editPostTreatment();
                                         break;
+                                    case "delete_image": 
+                                        $AdminBlogController->deleteEditImage();
+                                        break;
                                     default:
                                         $AdminBlogController->getAdminBlog();
                                         break;

@@ -34,7 +34,7 @@
     </header>
 
     <!--Main content-->
-    <main id="main" class="wrapper">
+    <main id="main">
         <?php require_once($datas['view']); ?>
     </main>
 

@@ -1,0 +1,17 @@
+name: Deployment
+
+on:
+  push:
+    branches: [master]
+
+
+jobs:
+  steps: 
+    - name: Upload to Server
+      uses: SamKirland/FTP-Deploy-Action@4.0.0
+      with:
+        server: ${{ secrets.SERVER }}
+        username: ${{ secrets.USERNAME }}
+        password: ${{ secrets.PASSWORD }}
+        local-dir: /floaty.alexishadjian.com/
+        server-dir: /sites/floaty.alexishadjian.com/

@@ -40,7 +40,7 @@
                         align-items: center;
                         transition: .3s;
                         &:hover {
-                            background-color: #6d899a;
+                            background-color: #265470;
                         }
                         svg {
                             path {
@@ -48,7 +48,7 @@
                             }
                         }
                         span {
-                            font-weight: var(--semi-bold);
+                            font-weight: var(--bold);
                             color: var(--white);
                         }
                     }
@@ -80,6 +80,7 @@
                 span {
                     font-size: 15px;
                     color: var(--light-grey);
+                    font-weight: var(--semi-bold);
                 }
             }
         }
@@ -149,11 +150,11 @@
                         z-index: -1;
                     }
                     &__title {
-                        font-weight: var(--semi-bold);
-                        color: #747474;
+                        font-weight: var(--bold);
+                        color: var(--global-color);
                     }
                     &__actions {
-                        
+                        font-weight: var(--semi-bold);
                         .edit {
                             font-size: 15px;
                         }
@@ -182,14 +183,39 @@
                 margin: 15px 0;
                 padding: 15px 20px;
                 width: 100%;
-                height: 120px;
+                gap: 20px;
                 .image {
                     background-repeat: no-repeat;
                     background-position: center;
                     background-size: cover;
+                    position: relative;
                     border-radius: var(--radius_small);
-                    width: 100px;
-                    height: 100%;
+                    width: 150px;
+                    height: 150px;
+                    &:hover .delete-btn {
+                        opacity: .8;
+                        visibility: visible;
+                    }
+                    .delete-btn {
+                        color: var(--white);
+                        position: absolute;
+                        top: 10px;
+                        right: 10px;
+                        line-height: 1;
+                        opacity: 0;
+                        visibility: hidden;
+                        transition: .2s;
+                        background-color: var(--global-color);
+                        border-radius: 50%;
+                        width: 30px;
+                        height: 30px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        &:hover {
+                            opacity: 1;
+                        }
+                    }
                 }
             }
         }

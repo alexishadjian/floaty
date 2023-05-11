@@ -6,25 +6,45 @@ Header
 --------------------------------------------------------------*/
 
 header {
-    background-color: var(--global-color);
-    box-shadow: var(--shadow);
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    z-index: 1;
+    z-index: 50;
+    transition: .3s;
+    &.scroll {
+        background-color: var(--global-color);
+        box-shadow: var(--shadow);
+        --header-height: 74px;
+        .site-header {
+            padding: 10px 0;
+        }
+    }
     .site-header {
-        padding: 10px 0;
+        padding: 20px 0;
+        transition: .2s;
         &__logo {
             img {
                 height: 35px;
             }
         }
-        ul {
-            li {
-                a {
-                    padding: 10px 20px;
-                    color: var(--white);
+        nav {
+            &:hover a {
+                opacity: .4;
+            }
+            ul {
+                margin: 0;
+                li {
+                    display: flex;
+                    a {
+                        padding: 16px 20px;
+                        color: var(--white);
+                        font-weight: var(--bold);
+                        transition: .3s;
+                        &:hover {
+                            opacity: 1;
+                        }
+                    }
                 }
             }
         }
@@ -34,8 +54,9 @@ header {
                 align-items: center;
                 justify-content: center;
                 text-transform: uppercase;
-                background-color: var(--light-grey);
-                color: var(--white);
+                background-color: var(--white);
+                color: var(--global-color);
+                font-weight: var(--bold);
                 font-size: 25px;
                 width: 40px;
                 height: 40px;
@@ -49,10 +70,99 @@ header {
 Page
 --------------------------------------------------------------*/
 
-/*-----Accueil-----*/
+/*-----Homepage-----*/
 
+#homepage {
+    #hero {
+        min-height: 100vh;
+        background-image: url('../assets/img/hero.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        width: 100%;
+        padding-top: 100px;
+        color: var(--white);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+        &::after {
+            content: '';
+            position: absolute;
+            background: linear-gradient(to top, var(--global-color),rgba(0,0,0,.3));
+            inset: 0;
+            z-index: -1;
+        }
+        .content {
+            &__title {
+                font-size: 100px;
+                text-align: center;
+                margin-top: 0;
+            }
+            &__description {
+                font-size: 25px;
+                text-align: center;
+                line-height: 1.8;
+                padding: 0 100px;
+            }
+        }
+    }
+    #tmp {
+        min-height: 100vh;
+    }
+    #tmp2 {
+        min-height: 100vh;
+        background-color: var(--white);
+    }
+}
 
 /*-----Contact-----*/
+
+
+/*------Blog-------*/
+
+#blog {
+    .post-list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+        padding: 100px 0;
+        .post {
+            box-shadow: var(--shadow-light);
+            border-radius: var(--radius);
+            background-color: var(--white);
+            overflow: hidden;
+            position: relative;
+            &__link {
+                position: absolute;
+                inset: 0;
+                z-index: 2;
+            }
+            &__thumbnail {
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+                width: 100%;
+                height: 200px;
+                position: relative;
+                &::after {
+                    content: '';
+                    position: absolute;
+                    background-color: var(--mask);
+                    inset: 0;
+                    z-index: 1;
+                }
+            }
+            &__content {
+                padding: 30px;
+                &__title {
+                    font-size: 24px;
+                }
+            }
+        }
+    }
+}
 
 /*-----Login-----*/
 
@@ -60,21 +170,48 @@ Page
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 100px;
     .login-form {
-        width: 400px;
+        width: 450px;
+        padding: 50px;
+        background-color: var(--white);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        h2 {
+            text-align: center;
+            margin-top: 0;
+        }
+
     }
 }
 
+/*------404------*/
+
+#error-404 {
+    .content {
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+        &__title {
+            font-size: 200px;
+            color: var(--global-color);
+            opacity: .5;
+            margin: 50px 0;
+        }
+    }
+}
 /*--------------------------------------------------------------
 Footer
 --------------------------------------------------------------*/
 
 footer {
-    background-color: var(--light-grey);
+    background-color: var(--global-color);
     .site-footer {
         padding: 10px 0;
         p {
             text-align: center;
+            color: var(--white);
         }
     }
 }
