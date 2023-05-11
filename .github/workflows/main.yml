@@ -19,4 +19,4 @@ jobs:
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
         local-dir: ./
-        server-dir: /sites/floaty.alexishadjian.com/
+        server-dir: /sites/floaty/
