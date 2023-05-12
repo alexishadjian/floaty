@@ -26,7 +26,7 @@ class AdminController extends MainController {
 
     public function deconnexion() {
         unset($_SESSION['user']);
-        Tools::setMessage('Vous êtes déconnecté', '#86a3b4', 'Info');
+        Tools::setMessage('Vous êtes déconnecté', '#c0c0c0', 'Info');
         header('Location: '. SITE_URL .'/');
     }
 }

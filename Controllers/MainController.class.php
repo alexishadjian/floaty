@@ -20,11 +20,6 @@ class MainController {
         require_once('Views/base.html.php');
     }
 
-    public function getContact() {
-        $datas = $this->model->getContactDatas();
-        require_once('Views/base.html.php');
-    }
-
     public function getLoginPage() {
         $datas["title"] = 'Se connecter';
         $datas["view"] = 'Views/login.php';

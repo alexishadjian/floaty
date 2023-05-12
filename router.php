@@ -23,8 +23,8 @@ if ( empty( $_GET ) ) {
     }
 
     switch ( $url[0] ) {
-        case "contact":
-            $MainController->getContact();
+        case "boutique":
+            // $ShopController->getShop();
             break;
         case "blog":
             

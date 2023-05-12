@@ -18,9 +18,7 @@
                 <ul class="row">
                     <li><a href="<?= SITE_URL ?>/">Accueil</a></li>
                     <li><a href="<?= SITE_URL ?>/boutique">Boutique</a></li>
-                    <li><a href="<?= SITE_URL ?>/contact">Contact</a></li>
                     <li><a href="<?= SITE_URL ?>/blog">Blog</a></li>
-                    <!-- <li><a href="<?= SITE_URL ?>/dsquhb">404</a></li> -->
                 </ul>
             </nav>
             <div class="site-header__account">

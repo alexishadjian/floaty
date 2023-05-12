@@ -14,7 +14,7 @@ date_default_timezone_set('Europe/Paris');
 
 //Create shortcurt for website url
 if ( $_SERVER['SERVER_NAME'] === 'localhost' ) {
-    define( "SITE_URL", '/floaty.alexishadjian.com' );
+    define( "SITE_URL", '/floaty' );
 } else {
     define( "SITE_URL", 'https://' . $_SERVER['SERVER_NAME'] );
 }

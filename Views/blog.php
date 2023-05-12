@@ -1,4 +1,5 @@
 <?php require_once('Views/parts/header-page.php'); ?>
+<?php use Utils\Front; ?>
 
 <div id="blog">
     <div class="post-list wrapper">
@@ -13,8 +14,9 @@
                 <?php endif; ?>
                 
                 <div class="post__content">
-                    <span class="post__content__date"><?= $post["date"]; ?></span>
+                    <span class="post__content__date"><?= Front::getDate($post["date"]); ?></span>
                     <h4 class="post__content__title"><?= $post["title"]; ?></h4>
+                    <p class="post__content__description"><?= Front::getExcerpt( $post["content"], 20, '...' ); ?></p>
                 </div>
             </div>
         <?php endforeach; ?>
