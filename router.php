@@ -2,13 +2,17 @@
 
 use Controllers\MainController;
 use Controllers\BlogController;
+use Controllers\ShopController;
 use Controllers\Admin\AdminController;
 use Controllers\Admin\AdminBlogController;
+use Controllers\Admin\AdminShopController;
 
 $MainController = new MainController();
 $BlogController = new BlogController();
+$ShopController = new ShopController();
 $AdminController = new AdminController();
 $AdminBlogController = new AdminBlogController();
+$AdminShopController = new AdminShopController();
 
 
 if ( empty( $_GET ) ) {
@@ -23,8 +27,13 @@ if ( empty( $_GET ) ) {
     }
 
     switch ( $url[0] ) {
-        case "boutique":
-            // $ShopController->getShop();
+        case "shop":
+
+            if ( isset($url[1]) ) {
+                $ShopController->getProduct($url[1]);
+            } else {
+                $ShopController->getShop();
+            }
             break;
         case "blog":
             
@@ -80,6 +89,39 @@ if ( empty( $_GET ) ) {
                             break;
                         case "edit_post":
                             $AdminBlogController->getEditPost($_GET['slug']);
+                            break;
+                        case "shop": 
+                            $AdminShopController->getAdminShop();
+
+                            if( isset($_GET['action']) ) {
+
+                                $action = $_GET['action'];
+
+                                switch( $action )  {
+                                    case "delete_product": 
+                                        $AdminShopController->deleteProduct();
+                                        break;
+                                    case "add_product_treatment": 
+                                        $AdminShopController->addProductTreatment();
+                                        break;
+                                    case "edit_product_treatment": 
+                                        $AdminShopController->editProductTreatment();
+                                        break;
+                                    case "delete_image": 
+                                        $AdminShopController->deleteEditImage();
+                                        break;
+                                    default:
+                                        $AdminBlogController->getAdminBlog();
+                                        break;
+                                }
+                            }
+
+                            break;
+                        case "add_product": 
+                            $AdminShopController->getAddProduct();
+                            break;
+                        case "edit_product":
+                            $AdminShopController->getEditProduct($_GET['slug']);
                             break;
                         case "options": 
                             $AdminController->getAdminOptions();

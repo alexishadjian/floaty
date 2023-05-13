@@ -130,13 +130,13 @@
                 }
             }
         }
-        #blog {
+        #blog, #shop {
             padding: 30px;
-            .post-list {
+            .item-list {
                 display: flex;
                 flex-flow: column;
                 gap: 5px;
-                .post {
+                .item {
                     display: flex;
                     justify-content: space-between;
                     background-color: #dde5f1;
@@ -170,10 +170,10 @@
                 margin-top: 20px;
             }
         }
-        #add-post {
+        #add-post, #add-product {
             padding: 30px;
         }
-        #edit-post {
+        #edit-post, #edit-product {
             padding: 30px;
             .input-image {
                 background-color: rgb(134 163 180 / 16%);

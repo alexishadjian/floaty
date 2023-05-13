@@ -2,26 +2,26 @@
 
 namespace Controllers\Admin;
 
-use Models\Admin\AdminBlogModel;
+use Models\Admin\AdminShopModel;
 use Utils\Security;
 use Utils\Tools;
 
-class AdminBlogController extends AdminController {
+class AdminShopController extends AdminController {
 
-    private $adminBlogModel;
+    private $adminShopModel;
 
     public function __construct() {
-        $this->adminBlogModel = new AdminBlogModel();
+        $this->adminShopModel = new AdminShopModel();
     }
 
     /**
-    * Get admin blog page datas
-    * Call the admin blog page
+    * Get admin Shop page datas
+    * Call the admin Shop page
     * 
     */
 
-    public function getAdminBlog() {
-        $datas = $this->adminBlogModel->getAdminBlogDatas();
+    public function getAdminShop() {
+        $datas = $this->adminShopModel->getAdminShopDatas();
         require_once('Views/admin/base.html.php');
     }
 
@@ -31,35 +31,35 @@ class AdminBlogController extends AdminController {
     * 
     */
 
-    public function deletePost() {
+    public function deleteProduct() {
         
         $slug = $_GET['slug'];
 
-        $post = $this->adminBlogModel->getPDO()->prepare("DELETE FROM posts WHERE slug = ?");
-        $post->execute(array($slug));
+        $product = $this->adminShopModel->getPDO()->prepare("DELETE FROM products WHERE slug = ?");
+        $product->execute(array($slug));
 
-        Tools::setMessage("L'article à bien été suprimmé", '#FF0000', 'Cross');
-        header('Location:' . SITE_URL . '/admin/blog');
+        Tools::setMessage("Le produit à bien été suprimmé", '#FF0000', 'Cross');
+        header('Location:' . SITE_URL . '/admin/shop');
     }
 
     /**
-    * Get "add-post" page datas
-    * Call the "add-post" page
+    * Get "add-product" page datas
+    * Call the "add-product" page
     * 
     */
 
-    public function getAddPost() {
-        $datas = $this->adminBlogModel->getAddPostDatas();
+    public function getAddProduct() {
+        $datas = $this->adminShopModel->getAddProductDatas();
         require_once('Views/admin/base.html.php');
     }
 
     /**
-    * Check if there is POST datas
+    * Check if there is PRODUCT datas
     * Send datas to treatment model
     * 
     */
 
-    public function addPostTreatment() {
+    public function addProductTreatment() {
 
         if ( !empty($_POST['add-title']) && !empty($_POST['add-slug']) && !empty($_POST['add-content']) ) {
 
@@ -73,32 +73,33 @@ class AdminBlogController extends AdminController {
                     'content'   => $_POST['add-content'],
                     'image'     => $_FILES['add-image']['name'],
                     'date'      => date('Y-m-d H:i:s'),
+                    'price'     => $_POST['add-price'],
                 ];
                 
                 
                 
-                $this->adminBlogModel->addPostTreatment( $datas );
+                $this->adminShopModel->addProductTreatment( $datas );
 
-                Tools::setMessage("L'article à bien été publié", '#008000', 'Check');
-                header('Location:' . SITE_URL . '/admin/blog');
+                Tools::setMessage("Le produit à bien été publié", '#008000', 'Check');
+                header('Location:' . SITE_URL . '/admin/shop');
             } else {
                 Tools::setMessage("Veuillez choisir un slug différent", '#FF0000', 'Cross');
-                header('Location:' . SITE_URL . '/admin/blog');
+                header('Location:' . SITE_URL . '/admin/shop');
             }
 
             
         } else {
             Tools::setMessage("Veuillez remplir tous les champs", '#FF0000', 'Cross');
-            header('Location:' . SITE_URL . '/admin/blog');
+            header('Location:' . SITE_URL . '/admin/shop');
         }
     }
 
-    public function getEditPost( $slug ) {
-        $datas = $this->adminBlogModel->getEditPostDatas( $slug );
+    public function getEditProduct( $slug ) {
+        $datas = $this->adminShopModel->getEditProductDatas( $slug );
         require_once('Views/admin/base.html.php');
     }
 
-    public function editPostTreatment() {
+    public function editProductTreatment() {
 
         if ( !empty($_POST['edit-title']) && !empty($_POST['edit-slug']) && !empty($_POST['edit-content']) ) {
 
@@ -111,35 +112,36 @@ class AdminBlogController extends AdminController {
                     'content'   => $_POST['edit-content'],
                     'image'     => $_FILES['edit-image']['name'],
                     'date'      => date('Y-m-d H:i:s'),
+                    'price'     => $_POST['edit-price'],
                 ];
                 
                 
-                $this->adminBlogModel->editPostTreatment( $datas );
+                $this->adminShopModel->editProductTreatment( $datas );
 
-                Tools::setMessage("L'article à bien été modifié", '#008000', 'Check');
-                header('Location:' . SITE_URL . '/admin/blog');
+                Tools::setMessage("Le produit à bien été modifié", '#008000', 'Check');
+                header('Location:' . SITE_URL . '/admin/shop');
 
             } else {
                 Tools::setMessage("Veuillez choisir un slug différent", '#FF0000', 'Cross');
-                header('Location:' . SITE_URL . '/admin/blog');
+                header('Location:' . SITE_URL . '/admin/shop');
             }
         } else {
             Tools::setMessage("Veuillez remplir tous les champs", '#FF0000', 'Cross');
-            header('Location:' . SITE_URL . '/admin/blog');
+            header('Location:' . SITE_URL . '/admin/shop');
         }
     }
 
     public function deleteEditImage() {
 
-        $datas['post']['image'] = '';
+        $datas['product']['image'] = '';
 
         $datas = [
             'slug'      => $_GET['slug'],
             'image'   => '',
         ];
 
-        $this->adminBlogModel->deleteImageTreatment( $datas );
+        $this->adminShopModel->deleteImageTreatment( $datas );
 
-        header('Location:' . SITE_URL . '/admin/edit_post&slug=' . $_GET['slug']);
+        header('Location:' . SITE_URL . '/admin/edit_product&slug=' . $_GET['slug']);
     }
 }

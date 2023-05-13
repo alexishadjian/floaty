@@ -17,7 +17,7 @@
             <nav class="">
                 <ul class="row">
                     <li><a href="<?= SITE_URL ?>/">Accueil</a></li>
-                    <li><a href="<?= SITE_URL ?>/boutique">Boutique</a></li>
+                    <li><a href="<?= SITE_URL ?>/shop">Boutique</a></li>
                     <li><a href="<?= SITE_URL ?>/blog">Blog</a></li>
                 </ul>
             </nav>

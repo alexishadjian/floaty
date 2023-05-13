@@ -644,15 +644,15 @@ form input[type=submit] {
 .admin-container .content #dashboard .dashboard-content .right {
   width: 70%;
 }
-.admin-container .content #blog {
+.admin-container .content #blog, .admin-container .content #shop {
   padding: 30px;
 }
-.admin-container .content #blog .post-list {
+.admin-container .content #blog .item-list, .admin-container .content #shop .item-list {
   display: flex;
   flex-flow: column;
   gap: 5px;
 }
-.admin-container .content #blog .post-list .post {
+.admin-container .content #blog .item-list .item, .admin-container .content #shop .item-list .item {
   display: flex;
   justify-content: space-between;
   background-color: #dde5f1;
@@ -661,36 +661,36 @@ form input[type=submit] {
   position: relative;
   z-index: 1;
 }
-.admin-container .content #blog .post-list .post__link {
+.admin-container .content #blog .item-list .item__link, .admin-container .content #shop .item-list .item__link {
   position: absolute;
   inset: 0;
   z-index: -1;
 }
-.admin-container .content #blog .post-list .post__title {
+.admin-container .content #blog .item-list .item__title, .admin-container .content #shop .item-list .item__title {
   font-weight: var(--bold);
   color: var(--global-color);
 }
-.admin-container .content #blog .post-list .post__actions {
+.admin-container .content #blog .item-list .item__actions, .admin-container .content #shop .item-list .item__actions {
   font-weight: var(--semi-bold);
 }
-.admin-container .content #blog .post-list .post__actions .edit {
+.admin-container .content #blog .item-list .item__actions .edit, .admin-container .content #shop .item-list .item__actions .edit {
   font-size: 15px;
 }
-.admin-container .content #blog .post-list .post__actions .delete {
+.admin-container .content #blog .item-list .item__actions .delete, .admin-container .content #shop .item-list .item__actions .delete {
   color: red;
   margin-left: 20px;
   font-size: 15px;
 }
-.admin-container .content #blog .btn {
+.admin-container .content #blog .btn, .admin-container .content #shop .btn {
   margin-top: 20px;
 }
-.admin-container .content #add-post {
+.admin-container .content #add-post, .admin-container .content #add-product {
   padding: 30px;
 }
-.admin-container .content #edit-post {
+.admin-container .content #edit-post, .admin-container .content #edit-product {
   padding: 30px;
 }
-.admin-container .content #edit-post .input-image {
+.admin-container .content #edit-post .input-image, .admin-container .content #edit-product .input-image {
   background-color: rgba(134, 163, 180, 0.16);
   border-radius: var(--radius_small);
   border: 1px solid transparent;
@@ -700,7 +700,7 @@ form input[type=submit] {
   width: 100%;
   gap: 20px;
 }
-.admin-container .content #edit-post .input-image .image {
+.admin-container .content #edit-post .input-image .image, .admin-container .content #edit-product .input-image .image {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -709,11 +709,11 @@ form input[type=submit] {
   width: 150px;
   height: 150px;
 }
-.admin-container .content #edit-post .input-image .image:hover .delete-btn {
+.admin-container .content #edit-post .input-image .image:hover .delete-btn, .admin-container .content #edit-product .input-image .image:hover .delete-btn {
   opacity: 0.8;
   visibility: visible;
 }
-.admin-container .content #edit-post .input-image .image .delete-btn {
+.admin-container .content #edit-post .input-image .image .delete-btn, .admin-container .content #edit-product .input-image .image .delete-btn {
   color: var(--white);
   position: absolute;
   top: 10px;
@@ -730,6 +730,6 @@ form input[type=submit] {
   justify-content: center;
   align-items: center;
 }
-.admin-container .content #edit-post .input-image .image .delete-btn:hover {
+.admin-container .content #edit-post .input-image .image .delete-btn:hover, .admin-container .content #edit-product .input-image .image .delete-btn:hover {
   opacity: 1;
 }
