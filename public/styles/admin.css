@@ -420,7 +420,7 @@ form input[type=submit] {
 /*-----Header-page-----*/
 .header-page {
   width: 100%;
-  height: 350px;
+  height: 30vh;
   position: relative;
   background-image: url("../assets/img/boat.jpg");
   background-repeat: no-repeat;

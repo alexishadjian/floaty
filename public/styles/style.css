@@ -420,7 +420,7 @@ form input[type=submit] {
 /*-----Header-page-----*/
 .header-page {
   width: 100%;
-  height: 350px;
+  height: 30vh;
   position: relative;
   background-image: url("../assets/img/boat.jpg");
   background-repeat: no-repeat;
@@ -619,8 +619,49 @@ Page
   line-height: 1.8;
   padding: 0 100px;
 }
-#homepage #tmp {
+#homepage #presentation {
   min-height: 100vh;
+  display: flex;
+}
+#homepage #presentation .wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: 10% 0;
+}
+#homepage #presentation .wrapper .left {
+  width: 45%;
+  height: 80%;
+}
+#homepage #presentation .wrapper .left .big-img {
+  height: 100%;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
+  position: relative;
+}
+#homepage #presentation .wrapper .left .big-img .small-img {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
+  width: 300px;
+  height: 400px;
+  position: absolute;
+  right: -80px;
+  bottom: -50px;
+}
+#homepage #presentation .wrapper .right {
+  width: 40%;
+  color: #bababa;
+}
+#homepage #presentation .wrapper .right p {
+  font-size: 17px;
+  line-height: 1.6;
+  margin-bottom: 40px;
 }
 #homepage #tmp2 {
   min-height: 100vh;
@@ -736,6 +777,7 @@ Page
   justify-content: center;
   align-items: start;
   margin-top: 100px;
+  margin-bottom: 100px;
   flex-grow: 1;
 }
 #login .login-form {
