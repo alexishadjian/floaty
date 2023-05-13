@@ -620,17 +620,17 @@ Page
   padding: 0 100px;
 }
 #homepage #presentation {
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
 }
 #homepage #presentation .wrapper {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 10% 0;
 }
 #homepage #presentation .wrapper .left {
   width: 45%;
-  height: 80%;
 }
 #homepage #presentation .wrapper .left .big-img {
   height: 100%;

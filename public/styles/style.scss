@@ -109,15 +109,15 @@ Page
         }
     }
     #presentation {
-        min-height: 100vh;
+        height: 100vh;
         display: flex;
         .wrapper {
             display: flex;
             justify-content: space-between;
+            align-items: center;
             padding: 10% 0;
             .left {
                 width: 45%;
-                height: 80%;
                 .big-img {
                     height: 100%;
                     width: 100%;

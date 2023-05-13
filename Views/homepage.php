@@ -13,13 +13,11 @@
     <section id="presentation">
         <div class="wrapper">
             <div class="left">
-                <div class="big-img" style="background-image: url('public/assets/img/voilier.jpg');">
-                    <div class="small-img" style="background-image: url('public/assets/img/yatch.jpg');"></div>
+                <div class="big-img" style="background-image: url('public/assets/img/yatch.jpg');">
+                    <div class="small-img" style="background-image: url('public/assets/img/yatch2.jpg');"></div>
                 </div>
             </div>
             <div class="right">
-                <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore consequatur officia molestias harum nisi aspernatur non dolore adipisci doloribus quisquam quidem vitae animi possimus sequi quod pariatur at, voluptatem sapiente.</p>
                 <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore consequatur officia molestias harum nisi aspernatur non dolore adipisci doloribus quisquam quidem vitae animi possimus sequi quod pariatur at, voluptatem sapiente.</p>
                 <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
