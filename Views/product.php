@@ -5,14 +5,24 @@
 }; ?>
 <?php use Utils\Front; ?>
 
-<div id="post" class="wrapper">
-   <section class="header-post" style="background-image: url('<?= $image ?>');">
-      <div class="header-post__content">
-         <h1 class="header-post__content__title"><?= $datas['product']["title"] ?></h1>
+<section class="header-page">
+   <div class="header-page__content">
+      <h1 class="header-page__content__title"><?= $datas['product']["title"] ?></h1>
+   </div>
+</section>
+
+<div id="product" class="wrapper">
+   <div class="content">
+      <div class="left col3" style="background-image: url('<?= $image ?>');"></div>
+      <div class="right col3">
+         <h2 class="title"><?= $datas['product']["title"] ?></h2>
+         <p class="description"><?= Front::getExcerpt( $datas['product']["content"], 30, '...' ); ?></p>
+         <p class="price"><?= $datas['product']["price"] ?> €</p>
+         <a class="btn btn_primary" href="#">Réserver</a>
       </div>
-   </section>
-   <section class="content-post">
-      <span class="content-post__date"><?= Front::getDate( $datas['product']["date"] ); ?></span>
-      <p class="content-post__content"><?= $datas['product']["content"] ?></p>
-   </section>
+   </div>
+   <div class="description">
+      <h2 class="title">Description</h2>
+      <p class="content"><?= $datas['product']["content"] ?></p>
+   </div>
 </div>

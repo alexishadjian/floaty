@@ -6,6 +6,7 @@ use Controllers\ShopController;
 use Controllers\Admin\AdminController;
 use Controllers\Admin\AdminBlogController;
 use Controllers\Admin\AdminShopController;
+use Controllers\NotfoundController;
 
 $MainController = new MainController();
 $BlogController = new BlogController();
@@ -13,7 +14,7 @@ $ShopController = new ShopController();
 $AdminController = new AdminController();
 $AdminBlogController = new AdminBlogController();
 $AdminShopController = new AdminShopController();
-
+$NotfoundController = new NotfoundController();
 
 if ( empty( $_GET ) ) {
     $MainController->getHomepage();
@@ -143,7 +144,6 @@ if ( empty( $_GET ) ) {
             }
             break;
         default:
-            $NotfoundController = new Controllers\NotfoundController();
             $NotfoundController->get404("Erreur d'aiguillage. Page non trouvée !");
             break;
     }

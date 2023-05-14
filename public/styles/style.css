@@ -771,7 +771,115 @@ Page
   margin-top: 40px;
 }
 
-/*-----Login-----*/
+/*------Shop-------*/
+#shop .product-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 50px;
+  padding: 100px 0;
+}
+#shop .product-list .product {
+  box-shadow: var(--shadow-light);
+  border-radius: var(--radius);
+  background-color: var(--white);
+  overflow: hidden;
+  position: relative;
+  transition: 0.3s;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 500px;
+}
+#shop .product-list .product:hover {
+  transform: translate(0, -5px);
+}
+#shop .product-list .product__link {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+#shop .product-list .product__content {
+  padding: 20px;
+  position: absolute;
+  background-color: #1d1d1d;
+  border-radius: var(--radius);
+  color: var(--white);
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+}
+#shop .product-list .product__content__title {
+  font-size: 22px;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+#shop .product-list .product__content__description {
+  font-size: 18px;
+  color: #b1b1b1;
+  margin-top: 0;
+  margin-bottom: 30px;
+}
+#shop .product-list .product__content__price {
+  font-weight: var(--bold);
+  font-size: 16px;
+}
+
+/*------Product-------*/
+#product {
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+#product > .content {
+  display: flex;
+  justify-content: space-between;
+  gap: 100px;
+  margin-bottom: 100px;
+}
+#product > .content .left {
+  border-radius: var(--radius);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 400px;
+}
+#product > .content .right .title {
+  font-size: 35px;
+  color: var(--white);
+}
+#product > .content .right .description {
+  font-size: 20px;
+  color: var(--white);
+}
+#product > .content .right .price {
+  font-weight: var(--bold);
+  font-size: 20px;
+  color: var(--white);
+  margin-bottom: 40px;
+}
+#product > .description {
+  padding-left: 150px;
+  position: relative;
+}
+#product > .description::before {
+  content: "";
+  position: absolute;
+  width: 100px;
+  left: 0;
+  height: 2px;
+  top: 15px;
+  background-color: var(--white);
+}
+#product > .description .title {
+  color: var(--white);
+}
+#product > .description .content {
+  color: var(--white);
+  font-size: 18px;
+}
+
+/*-------Login-------*/
 #login {
   display: flex;
   justify-content: center;
@@ -801,7 +909,7 @@ Page
 }
 #error-404 .content__title {
   font-size: 200px;
-  color: var(--global-color);
+  color: var(--white);
   opacity: 0.5;
   margin: 50px 0;
 }
