@@ -673,7 +673,7 @@ Page
   align-items: center;
 }
 #homepage #shop .content, #homepage #blog .content {
-  padding: 50px 0;
+  padding: 100px 0;
 }
 #homepage #shop .content .sec-title, #homepage #blog .content .sec-title {
   text-align: center;
@@ -917,7 +917,7 @@ Page
 #login {
   display: flex;
   justify-content: center;
-  align-items: start;
+  align-items: flex-start;
   margin-top: 100px;
   margin-bottom: 100px;
   flex-grow: 1;
@@ -953,6 +953,7 @@ Footer
 --------------------------------------------------------------*/
 footer {
   background-color: var(--global-color);
+  margin-top: 50px;
 }
 footer .site-footer {
   padding: 30px 0;
