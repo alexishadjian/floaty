@@ -15,7 +15,7 @@
             <a class="site-header__logo" href="<?= SITE_URL ?>">
                 <img src="<?= SITE_URL ?>/public/assets/img/logo-white.png">
             </a>
-            <nav class="">
+            <nav>
                 <ul class="row">
                     <li><a href="<?= SITE_URL ?>/">Accueil</a></li>
                     <li><a href="<?= SITE_URL ?>/shop">Boutique</a></li>
@@ -42,7 +42,17 @@
 
     <footer>
         <div class="site-footer wrapper">
-            <p>© Alexis Hadjian - 2023</p>
+            <a class="site-footer__logo" href="<?= SITE_URL ?>">
+                <img src="<?= SITE_URL ?>/public/assets/img/logo-white.png">
+            </a>
+            <p>© Floaty - <?= date('Y') ?></p>
+            <nav class="">
+                <ul class="row">
+                    <li><a href="<?= SITE_URL ?>/">Accueil</a></li>
+                    <li><a href="<?= SITE_URL ?>/shop">Boutique</a></li>
+                    <li><a href="<?= SITE_URL ?>/blog">Blog</a></li>
+                </ul>
+            </nav>
         </div>
     </footer>
 </body>

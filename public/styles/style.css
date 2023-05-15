@@ -367,7 +367,7 @@ Colonnes
 /*--------------------------------------------------------------
 Modèles
 --------------------------------------------------------------*/
-/*-----Bouton-----*/
+/*-----Button-----*/
 .btn {
   text-decoration: none;
   border-radius: var(--radius_small);
@@ -609,15 +609,15 @@ Page
   z-index: -1;
 }
 #homepage #hero .content__title {
-  font-size: 100px;
+  font-size: 90px;
   text-align: center;
   margin-top: 0;
 }
 #homepage #hero .content__description {
-  font-size: 25px;
+  font-size: 22px;
   text-align: center;
   line-height: 1.8;
-  padding: 0 100px;
+  padding: 0 120px;
 }
 #homepage #presentation {
   height: 100vh;
@@ -656,16 +656,42 @@ Page
 }
 #homepage #presentation .wrapper .right {
   width: 40%;
-  color: #bababa;
+  color: var(--white);
+  opacity: 0.5;
 }
 #homepage #presentation .wrapper .right p {
   font-size: 17px;
   line-height: 1.6;
   margin-bottom: 40px;
 }
-#homepage #tmp2 {
+#homepage #shop {
+  background-color: #0f2f41;
+}
+#homepage #shop, #homepage #blog {
   min-height: 100vh;
-  background-color: var(--white);
+  display: flex;
+  align-items: center;
+}
+#homepage #shop .sec-title, #homepage #blog .sec-title {
+  text-align: center;
+  font-size: 50px;
+  color: var(--white);
+  opacity: 0.8;
+  margin: 20px 0;
+}
+#homepage #shop .sec-description, #homepage #blog .sec-description {
+  text-align: center;
+  color: var(--white);
+  font-size: 17px;
+  opacity: 0.4;
+  padding: 0 150px;
+}
+#homepage #shop .btn-container, #homepage #blog .btn-container {
+  display: flex;
+  justify-content: center;
+}
+#homepage #shop .product-list, #homepage #shop .post-list, #homepage #blog .product-list, #homepage #blog .post-list {
+  padding-bottom: 50px;
 }
 
 /*------Blog-------*/
@@ -923,9 +949,38 @@ footer {
   background-color: var(--global-color);
 }
 footer .site-footer {
-  padding: 10px 0;
+  padding: 30px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid gray;
+}
+footer .site-footer__logo img {
+  height: 30px;
+  opacity: 0.7;
 }
 footer .site-footer p {
   text-align: center;
   color: var(--white);
+  opacity: 0.7;
+  font-size: 14px;
+}
+footer .site-footer nav:hover a {
+  opacity: 0.3;
+}
+footer .site-footer nav ul {
+  margin: 0;
+}
+footer .site-footer nav ul li {
+  display: flex;
+}
+footer .site-footer nav ul li a {
+  padding: 16px 20px;
+  color: var(--white);
+  transition: 0.3s;
+  font-size: 14px;
+  opacity: 0.7;
+}
+footer .site-footer nav ul li a:hover {
+  opacity: 0.7;
 }
