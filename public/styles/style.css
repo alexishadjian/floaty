@@ -617,7 +617,7 @@ Page
   font-size: 22px;
   text-align: center;
   line-height: 1.8;
-  padding: 0 120px;
+  padding: 0 220px;
 }
 #homepage #presentation {
   height: 100vh;
@@ -672,26 +672,32 @@ Page
   display: flex;
   align-items: center;
 }
-#homepage #shop .sec-title, #homepage #blog .sec-title {
+#homepage #shop .content, #homepage #blog .content {
+  padding: 50px 0;
+}
+#homepage #shop .content .sec-title, #homepage #blog .content .sec-title {
   text-align: center;
   font-size: 50px;
   color: var(--white);
   opacity: 0.8;
   margin: 20px 0;
 }
-#homepage #shop .sec-description, #homepage #blog .sec-description {
+#homepage #shop .content .sec-description, #homepage #blog .content .sec-description {
   text-align: center;
   color: var(--white);
   font-size: 17px;
   opacity: 0.4;
   padding: 0 150px;
 }
-#homepage #shop .btn-container, #homepage #blog .btn-container {
+#homepage #shop .content .btn-container, #homepage #blog .content .btn-container {
   display: flex;
   justify-content: center;
 }
-#homepage #shop .product-list, #homepage #shop .post-list, #homepage #blog .product-list, #homepage #blog .post-list {
-  padding-bottom: 50px;
+#homepage #shop .content .product-list, #homepage #shop .content .post-list, #homepage #blog .content .product-list, #homepage #blog .content .post-list {
+  padding: 5% 0;
+}
+#homepage #shop .content .product, #homepage #blog .content .product {
+  height: 350px;
 }
 
 /*------Blog-------*/

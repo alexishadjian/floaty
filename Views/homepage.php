@@ -14,7 +14,7 @@
     </section>
 
     <section id="presentation">
-        <div class="wrapper">
+        <div class="content wrapper">
             <div class="left">
                 <div class="big-img" style="background-image: url('public/assets/img/yatch.jpg');">
                     <div class="small-img" style="background-image: url('public/assets/img/yatch2.jpg');"></div>
@@ -37,7 +37,7 @@
             $shopModel = new ShopModel();
             $datas = $shopModel->getShopDatas();
         ?>
-        <div class="wrapper">
+        <div class="content wrapper">
             <h2 class="sec-title">Nos bateaux à vendre</h2>
             <p class="sec-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, consequatur incidunt, dolorem quod, eum nobis soluta doloremque consequuntur ducimus nam possimus inventore neque magni doloribus cumque eveniet? Modi, soluta autem!</p>
             <div class="product-list">
@@ -51,7 +51,7 @@
                         <a class="product__link" href="<?= SITE_URL ?>/shop/<?= $product["slug"]; ?>"></a>
                         <div class="product__content">
                             <h4 class="product__content__title"><?= $product["title"]; ?></h4>
-                            <p class="product__content__description"><?= Front::getExcerpt( $product["content"], 20, '...' ); ?></p>
+                            <p class="product__content__description"><?= Front::getExcerpt( $product["content"], 10, '...' ); ?></p>
                             <span class="product__content__price"><?= $product["price"]; ?> €</span>
                         </div>
                     </div>
@@ -69,7 +69,7 @@
             $blogModel = new BlogModel();
             $datas = $blogModel->getBlogDatas();
         ?>
-        <div class="wrapper">
+        <div class="content wrapper">
             <h2 class="sec-title">Nos actualités</h2>
             <p class="sec-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, consequatur incidunt, dolorem quod, eum nobis soluta doloremque consequuntur ducimus nam possimus inventore neque magni doloribus cumque eveniet? Modi, soluta autem!</p>
             <div class="post-list">

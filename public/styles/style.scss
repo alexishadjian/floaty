@@ -104,7 +104,7 @@ Page
                 font-size: 22px;
                 text-align: center;
                 line-height: 1.8;
-                padding: 0 120px;
+                padding: 0 220px;
             }
         }
     }
@@ -160,26 +160,32 @@ Page
         min-height: 100vh;
         display: flex;
         align-items: center;
-        .sec-title {
-            text-align: center;
-            font-size: 50px;
-            color: var(--white);
-            opacity: .8;
-            margin: 20px 0;
-        }
-        .sec-description {
-            text-align: center;
-            color: var(--white);
-            font-size: 17px;
-            opacity: .4;
-            padding: 0 150px;
-        }
-        .btn-container {
-            display: flex;
-            justify-content: center;
-        }
-        .product-list, .post-list {
-            padding-bottom: 50px;
+        .content {
+            padding: 50px 0;
+            .sec-title {
+                text-align: center;
+                font-size: 50px;
+                color: var(--white);
+                opacity: .8;
+                margin: 20px 0;
+            }
+            .sec-description {
+                text-align: center;
+                color: var(--white);
+                font-size: 17px;
+                opacity: .4;
+                padding: 0 150px;
+            }
+            .btn-container {
+                display: flex;
+                justify-content: center;
+            }
+            .product-list, .post-list {
+                padding: 5% 0;
+            }
+            .product {
+                height: 350px;
+            }
         }
     }
 }
