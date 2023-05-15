@@ -94,39 +94,77 @@
         left: var(--nav-width);
         min-height: 100vh;
         #dashboard {
-            .bg-svg {
-                opacity: .5;
-            }
             .dashboard-content {
-                display: flex;
-                justify-content: space-between;
                 margin-top: -200px;
                 padding: 30px;
                 position: relative;
-                > div {
-                    background-color: var(--light-grey-blue);
-                    box-shadow: var(--shadow-light);
-                    border-radius: var(--radius);
-                    padding: 30px;
-                }
-                .left {
-                    width: 28%;
-                    .profil {
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        text-transform: uppercase;
-                        background-color: var(--light-grey);
-                        color: var(--white);
-                        font-size: 80px;
-                        width: 150px;
-                        height: 150px;
-                        border-radius: 50%;
-                        margin: 0 auto;
+                .top {
+                    display: flex;
+                    justify-content: space-between;
+                    .left, .right {
+                        background-color: var(--light-grey-blue);
+                        box-shadow: var(--shadow-light);
+                        border-radius: var(--radius);
+                        padding: 30px;
+                    }
+                    .left {
+                        width: 28%;
+                        .profil {
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            text-transform: uppercase;
+                            background-color: var(--light-grey);
+                            color: var(--white);
+                            font-size: 80px;
+                            width: 150px;
+                            height: 150px;
+                            border-radius: 50%;
+                            margin: 0 auto;
+                        }
+                        .name {
+                            font-size: 30px;
+                            text-align: center;
+                            margin-bottom: 5px;
+                        }
+                        .role {
+                            color: gray;
+                            text-align: center;
+                            margin-top: 0;
+                            font-size: 15px;
+                        }
+                    }
+                    .right {
+                        width: 70%;
                     }
                 }
-                .right {
-                    width: 70%;
+                .resume {
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                    gap: 30px;
+                    width: 100%;
+                    margin-top: 30px;
+                    > div {
+                        box-shadow: var(--shadow-light);
+                        border-radius: var(--radius);
+                        display: flex;
+                        align-items: center;
+                        padding: 30px;
+                        svg {
+                            margin-right: 20px;
+                            path {
+                                fill: var(--global-color);
+                            }
+                        }
+                        p {
+                            font-size: 18px;
+                            margin: 0;
+                            span {
+                                font-size: 24px;
+                                font-weight: var(--bold);
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -217,6 +255,15 @@
                         }
                     }
                 }
+            }
+        }
+        #options {
+            padding: 30px;
+            h2 {
+                margin-bottom: 40px;
+            }
+            input[type="text"] {
+                margin: 0;
             }
         }
     }

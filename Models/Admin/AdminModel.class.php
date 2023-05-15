@@ -21,12 +21,4 @@ class AdminModel extends DatabaseModel {
         ];
         return $datas;
     }
-
-    public function getAdminOptionsDatas() {
-        $datas = [
-            "content" => "Back-office",
-            "view"    => "Views/admin/options.php"
-        ];
-        return $datas;
-    }
 }

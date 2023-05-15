@@ -6,6 +6,7 @@ use Controllers\ShopController;
 use Controllers\Admin\AdminController;
 use Controllers\Admin\AdminBlogController;
 use Controllers\Admin\AdminShopController;
+use Controllers\Admin\AdminOptionsController;
 use Controllers\NotfoundController;
 
 $MainController = new MainController();
@@ -14,6 +15,7 @@ $ShopController = new ShopController();
 $AdminController = new AdminController();
 $AdminBlogController = new AdminBlogController();
 $AdminShopController = new AdminShopController();
+$AdminOptionsController = new AdminOptionsController();
 $NotfoundController = new NotfoundController();
 
 if ( empty( $_GET ) ) {
@@ -125,7 +127,21 @@ if ( empty( $_GET ) ) {
                             $AdminShopController->getEditProduct($_GET['slug']);
                             break;
                         case "options": 
-                            $AdminController->getAdminOptions();
+                            $AdminOptionsController->getAdminOptions();
+
+                            if( isset($_GET['action']) ) {
+
+                                $action = $_GET['action'];
+
+                                switch( $action )  {
+                                    case "edit_site-title": 
+                                        $AdminOptionsController->editSiteTitle();
+                                        break;
+                                    default:
+                                        $AdminOptionsController->getAdminOptions();
+                                        break;
+                                }
+                            }
                             break;
                         case "deconnexion":
                             $AdminController->deconnexion();
@@ -147,7 +163,6 @@ if ( empty( $_GET ) ) {
             $NotfoundController->get404("Erreur d'aiguillage. Page non trouvée !");
             break;
     }
-
 }
 
 ?>

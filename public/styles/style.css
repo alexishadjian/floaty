@@ -833,7 +833,6 @@ Page
 #product > .content {
   display: flex;
   justify-content: space-between;
-  gap: 100px;
   margin-bottom: 100px;
 }
 #product > .content .left {
@@ -843,6 +842,9 @@ Page
   background-size: cover;
   width: 100%;
   height: 400px;
+}
+#product > .content .right {
+  padding-left: 100px;
 }
 #product > .content .right .title {
   font-size: 35px;

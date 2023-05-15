@@ -1,3 +1,4 @@
+<?php use Models\Admin\AdminOptionsModel; $AdminOptionsModel = new AdminOptionsModel(); ?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,7 +7,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="<?= SITE_URL ?>/public/assets/img/favicon.png">
     <link href="<?= SITE_URL ?>/public/styles/style.css" rel="stylesheet">
     <script defer src="<?= SITE_URL ?>/public/script.js"></script>
-    <title>Floaty</title>
+    <title><?= $AdminOptionsModel->getOption('Site title'); ?></title>
 </head>
 <body>
     <header>

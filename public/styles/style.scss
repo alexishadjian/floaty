@@ -330,7 +330,6 @@ Page
     >.content {
         display: flex;
         justify-content: space-between;
-        gap: 100px;
         margin-bottom: 100px;
         .left {
             border-radius: var(--radius);
@@ -341,6 +340,7 @@ Page
             height: 400px;
         }
         .right {
+            padding-left: 100px;
             .title {
                 font-size: 35px;
                 color: var(--white);

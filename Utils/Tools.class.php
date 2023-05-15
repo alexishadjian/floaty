@@ -2,6 +2,8 @@
 
 namespace Utils;
 
+use Models\DatabaseModel;
+
 class Tools {
 
     public static function setMessage( $msg, $color, $picto ) {
@@ -33,5 +35,21 @@ class Tools {
             // }
             
         }
+    }
+
+    public static function getItemNumber( $table ) {
+
+        $dataBaseModel = new DatabaseModel();
+
+        $stmt = $dataBaseModel->getPDO()->prepare("SELECT * FROM $table");
+        $stmt->execute();
+        $items = $stmt->fetchAll();
+        $number = 0;
+
+        foreach ( $items as $product ) {
+
+            $number++;
+        }
+        return $number;
     }
 }

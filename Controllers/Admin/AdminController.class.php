@@ -19,11 +19,6 @@ class AdminController extends MainController {
         require_once('Views/admin/base.html.php');
     }
 
-    public function getAdminOptions() {
-        $datas = $this->model->getAdminOptionsDatas();
-        require_once('Views/admin/base.html.php');
-    }
-
     public function deconnexion() {
         unset($_SESSION['user']);
         Tools::setMessage('Vous êtes déconnecté', '#c0c0c0', 'Info');
