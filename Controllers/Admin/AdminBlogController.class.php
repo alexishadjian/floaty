@@ -63,7 +63,7 @@ class AdminBlogController extends AdminController {
 
         if ( !empty($_POST['add-title']) && !empty($_POST['add-slug']) && !empty($_POST['add-content']) ) {
 
-            if ( !Security::slugExists( $_POST['add-slug']) ) {
+            if ( !Security::slugExists( $_POST['add-slug'], 'posts') ) {
             
                 Tools::imgTreatment('add-image');
 
@@ -93,16 +93,28 @@ class AdminBlogController extends AdminController {
         }
     }
 
+    /**
+    * Get edit post page datas
+    * Call the edit post page
+    * @param string $slug The slug of the post to edit
+    */
+
     public function getEditPost( $slug ) {
         $datas = $this->adminBlogModel->getEditPostDatas( $slug );
         require_once('Views/admin/base.html.php');
     }
 
+    /**
+    * Check if there is POST datas
+    * Send datas to treatment model
+    * 
+    */
+
     public function editPostTreatment() {
 
         if ( !empty($_POST['edit-title']) && !empty($_POST['edit-slug']) && !empty($_POST['edit-content']) ) {
 
-            if ( !Security::slugExistsEdit( $_GET['id'], $_POST['edit-slug']) ) {
+            if ( !Security::slugExistsEdit( $_GET['id'], $_POST['edit-slug'], 'posts') ) {
 
                 Tools::imgTreatment('edit-image');
                 $datas = [
@@ -129,12 +141,18 @@ class AdminBlogController extends AdminController {
         }
     }
 
+    /**
+    * Set empty value for the image
+    * Send datas to treatment model
+    * 
+    */
+
     public function deleteEditImage() {
 
         $datas['post']['image'] = '';
 
         $datas = [
-            'slug'      => $_GET['slug'],
+            'slug'    => $_GET['slug'],
             'image'   => '',
         ];
 

@@ -15,16 +15,34 @@ class MainController {
         $this->model = new MainModel();
     }
 
+    /**
+    * Get homepage page datas
+    * Call the homepage page
+    * 
+    */
+
     public function getHomepage() {
         $datas = $this->model->getHomeDatas();
         require_once('Views/base.html.php');
     }
+
+    /**
+    * Set login page datas
+    * Call the login page
+    * 
+    */
 
     public function getLoginPage() {
         $datas["title"] = 'Se connecter';
         $datas["view"] = 'Views/login.php';
         require_once('Views/base.html.php');
     }
+
+    /**
+    * Check if there is POST datas
+    * Send datas to treatment model
+    * If it matches with database entry set user session
+    */
 
     public function validateLogin() {
         if ( !empty($_POST['login']) && !empty($_POST['password']) ) {

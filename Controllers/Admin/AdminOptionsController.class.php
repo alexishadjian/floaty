@@ -13,10 +13,22 @@ class AdminOptionsController {
         $this->adminOptionsController = new AdminOptionsModel();
     }
 
+    /**
+    * Get admin options page datas
+    * Call the admin options page
+    * 
+    */
+
     public function getAdminOptions() {
         $datas = $this->adminOptionsController->getAdminOptionsDatas();
         require_once('Views/admin/base.html.php');
     }
+
+    /**
+    * Check if there is POST datas
+    * Send datas to treatment model
+    * 
+    */
 
     public function editSiteTitle() {
 

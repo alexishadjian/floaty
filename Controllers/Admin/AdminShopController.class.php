@@ -63,7 +63,7 @@ class AdminShopController extends AdminController {
 
         if ( !empty($_POST['add-title']) && !empty($_POST['add-slug']) && !empty($_POST['add-content']) ) {
 
-            if ( !Security::slugExists( $_POST['add-slug']) ) {
+            if ( !Security::slugExists( $_POST['add-slug'], 'products') ) {
             
                 Tools::imgTreatment('add-image');
 
@@ -94,16 +94,28 @@ class AdminShopController extends AdminController {
         }
     }
 
+    /**
+    * Get edit product page datas
+    * Call the edit product page
+    * @param string $slug The slug of the product to edit
+    */
+
     public function getEditProduct( $slug ) {
         $datas = $this->adminShopModel->getEditProductDatas( $slug );
         require_once('Views/admin/base.html.php');
     }
 
+    /**
+    * Check if there is POST datas
+    * Send datas to treatment model
+    * 
+    */
+
     public function editProductTreatment() {
 
         if ( !empty($_POST['edit-title']) && !empty($_POST['edit-slug']) && !empty($_POST['edit-content']) ) {
 
-            if ( !Security::slugExistsEdit( $_GET['id'], $_POST['edit-slug']) ) {
+            if ( !Security::slugExistsEdit( $_GET['id'], $_POST['edit-slug'], 'products') ) {
 
                 Tools::imgTreatment('edit-image');
                 $datas = [
@@ -130,6 +142,12 @@ class AdminShopController extends AdminController {
             header('Location:' . SITE_URL . '/admin/shop');
         }
     }
+
+    /**
+    * Set empty value for the image
+    * Send datas to treatment model
+    * 
+    */
 
     public function deleteEditImage() {
 

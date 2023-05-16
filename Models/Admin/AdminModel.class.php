@@ -6,6 +6,14 @@ use Models\DatabaseModel;
 
 class AdminModel extends DatabaseModel {
 
+    /**
+    * Check if params matches with databse entries
+    * If it matches return the user
+    * @param string $login User input value
+    * @param string $password User input value
+    * @return $user
+    */
+
     public function checkUser( $login, $password ) {
         $stmt = $this->getPDO()->prepare("SELECT * FROM users WHERE login=? AND pwd=?");
         $stmt->execute([$login, $password]);
@@ -13,6 +21,12 @@ class AdminModel extends DatabaseModel {
 
         return $user;
     }
+
+    /**
+    * Set datas of the admin dashboard page 
+    * @return $datas
+    * 
+    */
 
     public function getAdminDashboardDatas() {
         $datas = [

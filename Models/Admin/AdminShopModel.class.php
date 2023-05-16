@@ -4,6 +4,13 @@ namespace Models\Admin;
 
 class AdminShopModel extends AdminModel {
 
+    /**
+    * Select all elements form the 'product' table
+    * Set datas of the shop page 
+    * @return $datas
+    * 
+    */
+
     public function getAdminShopDatas() {
         
         $res = $this->getPDO()->query( 'SELECT * FROM products' );
@@ -18,6 +25,12 @@ class AdminShopModel extends AdminModel {
         return $datas;
     }
 
+    /**
+    * Set datas of the add product page 
+    * @return $datas
+    * 
+    */
+
     public function getAddProductDatas() {
         
         $datas = [
@@ -28,12 +41,28 @@ class AdminShopModel extends AdminModel {
         return $datas;
     }
 
+    /**
+    * Insert $datas in the database
+    * Set datas of the add post page 
+    * @param string Array of values to inset into the 'posts' table
+    * @return $datas 
+    *
+    */
+
     public function addProductTreatment( $datas ) {
                 
         $sql = ("INSERT INTO products (`id`, `title`, `slug`, `content`, `image`, `date` , `price`) VALUES (NULL, :title, :slug, :content, :image, :date, :price)");
         $product = $this->getPDO()->prepare($sql);
         $product->execute($datas);
     }
+
+    /**
+    * Select the element in the 'products' table with the $slug
+    * Set datas of the edit product page 
+    * @param string $slug The slug of the product to edit
+    * @return $datas 
+    *
+    */
 
     public function getEditProductDatas( $slug ) {
         $stmt = $this->getPDO()->prepare("SELECT * FROM products WHERE slug=?");
@@ -48,6 +77,12 @@ class AdminShopModel extends AdminModel {
         return $datas;
     }
 
+    /**
+    * Update $datas in the database
+    * @param string Array of values to update into the 'products' table
+    *
+    */
+
     public function editProductTreatment( $datas ) {
 
         $sql = "UPDATE products SET title = :title, slug = :slug, image = :image, content = :content, price = :price WHERE slug = :slug";
@@ -56,6 +91,11 @@ class AdminShopModel extends AdminModel {
 
     }
 
+    /**
+    * Update $datas in the database
+    * @param string Array of values to update into the 'products' table
+    * 
+    */
 
     public function deleteImageTreatment( $datas ) {
 

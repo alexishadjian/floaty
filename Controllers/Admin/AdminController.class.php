@@ -14,10 +14,21 @@ class AdminController extends MainController {
         $this->model = new AdminModel();
     }
 
+    /**
+    * Get admin dashboard page datas
+    * Call the admin dahsboard page
+    * 
+    */
+
     public function getAdminDashboard() {
         $datas = $this->model->getAdminDashboardDatas();
         require_once('Views/admin/base.html.php');
     }
+
+    /**
+    * Unset the user session
+    * 
+    */
 
     public function deconnexion() {
         unset($_SESSION['user']);

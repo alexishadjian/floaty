@@ -5,6 +5,12 @@ namespace Models;
 
 class MainModel {
 
+    /**
+    * Set datas of the add product page 
+    * @return $datas
+    * 
+    */
+
     public function getHomeDatas() {
         $datas = [
             "title"     => "Floaty",

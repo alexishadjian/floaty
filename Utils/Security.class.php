@@ -8,9 +8,23 @@ class Security {
 
     protected $dataBaseModel;
 
+    /**
+    * Check if string contain HTML
+    *
+    * @param string $str The content to check
+    * @return string
+    */
+
     public static function inputValidation( $str ) {
         return htmlentities( $str );
     }
+
+    /**
+    * Check if string is a valid email
+    *
+    * @param string $str The content to check
+    * @return bool
+    */
 
     public static function isEmailValid( $str ) {
         if ( !filter_var( $str, FILTER_VALIDATE_EMAIL ) ) {
@@ -19,32 +33,49 @@ class Security {
         return true;
     }
 
-    public static function slugExists( $slug ) {
+    /**
+    * Check if $slug exist in the '$table' table
+    *
+    * @param string $slug The slug to check
+    * @param string $table The table to check into
+    * @return bool
+    */
+
+    public static function slugExists( $slug, $table ) {
         
         $dataBaseModel = new DatabaseModel();
         
-        $stmt = $dataBaseModel->getPDO()->prepare("SELECT * FROM posts WHERE slug=?");
+        $stmt = $dataBaseModel->getPDO()->prepare("SELECT * FROM $table WHERE slug=?");
         $stmt->execute([$slug]); 
-        $post = $stmt->fetch();
-        if ($post) {
+        $element = $stmt->fetch();
+        if ($element) {
             return true;
         } else {
             return false;
         } 
     }
 
-    public static function slugExistsEdit( $id, $slug ) {
+    /**
+    * Check if $slug exist in the '$table' table except the current slug
+    *
+    * @param string $id The id of current edit element
+    * @param string $slug The slug to current edit element
+    * @param string $table The table to check into
+    * @return bool
+    */
+
+    public static function slugExistsEdit( $id, $slug, $table ) {
 
         $dataBaseModel = new DatabaseModel();
 
-        $stmt = $dataBaseModel->getPDO()->prepare("SELECT * FROM posts WHERE slug= :slug AND NOT id= :id");
+        $stmt = $dataBaseModel->getPDO()->prepare("SELECT * FROM $table WHERE slug= :slug AND NOT id= :id");
         $stmt->execute(array(
             "id"     => $id,
             "slug"   => $slug,
         ));
-        $post = $stmt->fetch();
+        $element = $stmt->fetch();
 
-        if ($post) {
+        if ($element) {
             return true;
         } else {
             return false;
