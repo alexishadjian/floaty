@@ -13,8 +13,8 @@ ini_set('display_errors', 1);ini_set('display_startup_errors', 1);error_reportin
 date_default_timezone_set('Europe/Paris');
 
 //Create shortcurt for website url
-if ( $_SERVER['SERVER_NAME'] === 'localhost' ) {
-    define( "SITE_URL", '/floaty' );
+if ( $_SERVER['SERVER_NAME'] === 'floaty.local' ) {
+    define( "SITE_URL", '' );
 } else {
     define( "SITE_URL", 'https://' . $_SERVER['SERVER_NAME'] );
 }
