@@ -9,5 +9,5 @@
 
 ## URL
 ```
-http://floaty.local:8888
+https://floaty.local:8888
 ```
